@@ -1,0 +1,17 @@
+Admin Accounts{
+    admin@admin.com    =>     admin123  (You can't delete it),
+    admin1@admin.com    =>     admin123,
+    admin2@admin.com    =>     admin123,
+}
+
+
+Assist Accounts {
+    assist1@assist.com  =>      assist123,
+    assist2@assist.com  =>      assist123,
+}
+
+User Accounts {
+    user1@user.com      =>     user123,
+    user2@user.com      =>     user123,
+    user3@user.com      =>     user123,
+}
