@@ -48,23 +48,23 @@
                             <nav class="menu">
                                 <ul class="main_menu">
                                     <li>
-                                        <a href={{ url('/home') }}>الرئيسية</a>
+                                        <a href="#">الرئيسية</a>
                                     </li>
         
                                     <li>
-                                        <a href="product.html">البضائع</a>
+                                        <a href="#">البضائع</a>
                                     </li>
         
                                     <li>
-                                        <a href="product.html">العروض</a>
+                                        <a href="#">العروض</a>
                                     </li>
         
                                     <li>
-                                        <a href="about.html">من نحن</a>
+                                        <a href="#">من نحن</a>
                                     </li>
         
                                     <li>
-                                        <a href="contact.html">اتصل بنا</a>
+                                        <a href="#">اتصل بنا</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -116,122 +116,125 @@
                         </div>
                     </div>
                 </div>
-        
-                <!-- Header Mobile -->
-                <div class="wrap_header_mobile">
-                    <!-- Logo moblie -->
-                    <a href="index.html" class="logo-mobile">
-                        <img src="{{ Request::root() }}/website/images/icons/logo.png" alt="IMG-LOGO">
-                    </a>
-        
-                    <!-- Button show menu -->
-                    <div class="btn-show-menu">
-                        <!-- Header Icon mobile -->
-                        <div class="header-icons-mobile">
-                            <a href="#" class="header-wrapicon1 dis-block">
-                                <img src="{{ Request::root() }}/website/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
-                            </a>
-        
-                            <span class="linedivide2"></span>
-        
-                            <div class="header-wrapicon2">
-                                <img src="{{ Request::root() }}/website/images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-                                <span class="header-icons-noti">0</span>
-        
-                                <!-- Header cart noti -->
-                                <div class="header-cart header-dropdown">
-                                    <ul class="nav navbar-nav navbar-right">
-                                        <!-- Authentication Links -->
-                                        @if (Auth::guest())
-                                            <li><a href="{{ route('login') }}">Login</a></li>
-                                            <li><a href="{{ route('register') }}">Register</a></li>
-                                        @else
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                                </a>
-                
-                                                <ul class="dropdown-menu" role="menu">
-                                                    <li>
-                                                        <a href="{{ route('logout') }}"
-                                                            onclick="event.preventDefault();
-                                                                        document.getElementById('logout-form').submit();">
-                                                            Logout
-                                                        </a>
-                
-                                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                            {{ csrf_field() }}
-                                                        </form>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        @endif
-                                    </ul>
-        
-                                    
+                @if(true)
+                    
+                    
+                    <!-- Header Mobile -->
+                    <div class="wrap_header_mobile">
+                        <!-- Logo moblie -->
+                        <a href="index.html" class="logo-mobile">
+                            <img src="{{ Request::root() }}/website/images/icons/logo.png" alt="IMG-LOGO">
+                        </a>
+            
+                        <!-- Button show menu -->
+                        <div class="btn-show-menu">
+                            <!-- Header Icon mobile -->
+                            <div class="header-icons-mobile">
+                                <a href="#" class="header-wrapicon1 dis-block">
+                                    <img src="{{ Request::root() }}/website/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+                                </a>
+            
+                                <span class="linedivide2"></span>
+            
+                                <div class="header-wrapicon2">
+                                    <img src="{{ Request::root() }}/website/images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+                                    <span class="header-icons-noti">0</span>
+            
+                                    <!-- Header cart noti -->
+                                    <div class="header-cart header-dropdown">
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <!-- Authentication Links -->
+                                            @if (Auth::guest())
+                                                <li><a href="{{ route('login') }}">Login</a></li>
+                                                <li><a href="{{ route('register') }}">Register</a></li>
+                                            @else
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                                        {{ Auth::user()->name }} <span class="caret"></span>
+                                                    </a>
+                    
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li>
+                                                            <a href="{{ route('logout') }}"
+                                                                onclick="event.preventDefault();
+                                                                            document.getElementById('logout-form').submit();">
+                                                                Logout
+                                                            </a>
+                    
+                                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                                {{ csrf_field() }}
+                                                            </form>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            @endif
+                                        </ul>
+            
+                                        
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-        
-                        <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
-                            <span class="hamburger-box">
-                                <span class="hamburger-inner"></span>
-                            </span>
+            
+                            <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+                                <span class="hamburger-box">
+                                    <span class="hamburger-inner"></span>
+                                </span>
+                            </div>
                         </div>
                     </div>
-                </div>
-        
-                <!-- Menu Mobile -->
-                <div class="wrap-side-menu" >
-                    <nav class="side-menu">
-                        <ul class="main-menu">
-        
-                            <li class="item-topbar-mobile p-l-10">
-                                <div class="topbar-social-mobile">
-                                    <a href="#" class="topbar-social-item fa fa-facebook"></a>
-                                    <a href="#" class="topbar-social-item fa fa-instagram"></a>
-                                    <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-                                    <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-                                    <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
-                                </div>
-                            </li>
-        
-                            <li class="item-menu-mobile">
-                                <a href="index.html">Home</a>
-                                <ul class="sub-menu">
-                                    <li><a href="index.html">Homepage V1</a></li>
-                                    <li><a href="home-02.html">Homepage V2</a></li>
-                                    <li><a href="home-03.html">Homepage V3</a></li>
-                                </ul>
-                                <i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
-                            </li>
-        
-                            <li class="item-menu-mobile">
-                                <a href="product.html">Shop</a>
-                            </li>
-        
-                            <li class="item-menu-mobile">
-                                <a href="product.html">Sale</a>
-                            </li>
-        
-                            <li class="item-menu-mobile">
-                                <a href="cart.html">Features</a>
-                            </li>
-        
-                            <li class="item-menu-mobile">
-                                <a href="blog.html">Blog</a>
-                            </li>
-        
-                            <li class="item-menu-mobile">
-                                <a href="about.html">About</a>
-                            </li>
-        
-                            <li class="item-menu-mobile">
-                                <a href="contact.html">Contact</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+            
+                    <!-- Menu Mobile -->
+                    <div class="wrap-side-menu" >
+                        <nav class="side-menu">
+                            <ul class="main-menu">
+            
+                                <li class="item-topbar-mobile p-l-10">
+                                    <div class="topbar-social-mobile">
+                                        <a href="#" class="topbar-social-item fa fa-facebook"></a>
+                                        <a href="#" class="topbar-social-item fa fa-instagram"></a>
+                                        <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
+                                        <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
+                                        <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+                                    </div>
+                                </li>
+            
+                                <li class="item-menu-mobile">
+                                    <a href="index.html">Home</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="index.html">Homepage V1</a></li>
+                                        <li><a href="home-02.html">Homepage V2</a></li>
+                                        <li><a href="home-03.html">Homepage V3</a></li>
+                                    </ul>
+                                    <i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
+                                </li>
+            
+                                <li class="item-menu-mobile">
+                                    <a href="product.html">Shop</a>
+                                </li>
+            
+                                <li class="item-menu-mobile">
+                                    <a href="product.html">Sale</a>
+                                </li>
+            
+                                <li class="item-menu-mobile">
+                                    <a href="cart.html">Features</a>
+                                </li>
+            
+                                <li class="item-menu-mobile">
+                                    <a href="blog.html">Blog</a>
+                                </li>
+            
+                                <li class="item-menu-mobile">
+                                    <a href="about.html">About</a>
+                                </li>
+            
+                                <li class="item-menu-mobile">
+                                    <a href="contact.html">Contact</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                @endif
             </header>
 
 

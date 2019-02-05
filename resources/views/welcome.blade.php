@@ -11,6 +11,13 @@
 @section('content')
 <!-- Slide1 -->
 
+<div style="font-size: 30px;">الموقع متاح للاعمال الادارية فقط </div> 
+@if (Auth::user()->admin == 1 || Auth::user()->admin == 2)
+    <a href="{{ url('/admin/panel') }}" style="font-size: 30px;">
+        الذهاب للوحة التحكم
+    </a>
+@endif
+{{-- 
 <!-- Banner -->
 <section class="banner bgwhite p-t-40 p-b-40">
     <div class="container">
@@ -439,6 +446,6 @@
             </span>
         </div>
     </div>
-</section>
+</section> --}}
 
 @endsection

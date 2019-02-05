@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\products;
 
 class AdminController extends Controller
 {
@@ -132,6 +133,8 @@ class AdminController extends Controller
 
     public function panal()
     {
-        return view('/admin/product/add');
+        $products = products::all();
+        //return $product ;
+        return view('admin.product.index')->with('products',$products);
     }
 }

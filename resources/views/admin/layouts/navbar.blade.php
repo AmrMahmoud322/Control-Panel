@@ -37,17 +37,16 @@
         class="active"
         @endif
         ><a href="{{ url('/admin/bill') }}">عرض قائمة الفواتير</a></li>
-
         <li @if( $title == 'عمل فاتورة' )
         class="active"
         @endif
         ><a href="{{ url('/admin/bill/new') }}">عمل فاتورة جديدة</li>
-
         @if( Auth::user()->admin == 1 && $title == 'تعديل فاتورة')
-            <li @if( $title == 'تعديل فاتورة' )
+            <li 
+            @if( $title == 'تعديل فاتورة' )
             class="active"
             @endif
-            ><a href="{{ url('/admin/user/edit') }}">تعديل فاتورة</a></li>
+            ><a href="">تعديل فاتورة</a></li>
         @endif
         
     </ul>

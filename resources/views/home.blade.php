@@ -9,7 +9,13 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div style="font-size: 30px;">الموقع متاح للاعمال الادارية فقط </div> 
+@if (Auth::user()->admin == 1 || Auth::user()->admin == 2)
+    <a href="{{ url('/admin/panel') }}" style="font-size: 30px;">
+        الذهاب للوحة التحكم
+    </a>
+@endif
+{{-- <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -27,5 +33,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection
