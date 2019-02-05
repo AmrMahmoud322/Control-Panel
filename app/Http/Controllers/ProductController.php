@@ -129,7 +129,7 @@ class ProductController extends Controller
 
         $product->save();
 
-        return redirect('/admin/product/new')->with('success','لقد تم تحديث الصنف بنجاح');
+        return redirect('/admin/product/'. $product->id)->with('success','لقد تم تحديث الصنف بنجاح');
     }
 
     /**

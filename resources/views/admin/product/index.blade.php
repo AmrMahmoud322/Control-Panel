@@ -44,7 +44,8 @@ $title= "قائمة البضائع";
                         <h5 style="direction:rtl">قائمة البضائع</h5>
                     </div>
                     <div class="ibox-content">
-
+                        <button type="button" class="btn btn-outline-secondary" style="float: left" onclick="deleteZeroAmount()">اظهار البضائع غير المتوفرة</button>
+                        <br/><br/><br/>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover dataTables-example" style="direction:rtl">
                                 <thead style="font-size: 15px">
@@ -63,8 +64,11 @@ $title= "قائمة البضائع";
                                     </tr>
                                 </thead>
                                 <tbody style="font-size: 14px">
+                                    @php
+                                        $i = 1;    
+                                    @endphp
                                     @foreach ($products as $product)
-                                        <tr class="gradeA">
+                                        <tr class="gradeA"@if ( $product->quantity == 0) style="visibility: collapse;" @endif>
                                             
                                         @if (Auth::user()->admin == 1 )
                                         <td>
@@ -79,12 +83,15 @@ $title= "قائمة البضائع";
                                             <td>{{ $product->price }}</td>
                                             <td>{{ $product->wholesale }}</td>
                                             <td>{{ $product->buy_price }}</td>
-                                            <td>{{ $product->quantity }}</td>
+                                            <td id="amount{{ $i }}">{{ $product->quantity }}</td>
                                             <td>{{ $product->name }}</td>
                                             <td class="center">{{ $product->notes }}</td>
                                             <td class="center">{{ $product->type }}</td>
                                             <td class="center"> <a href="{{ url('/admin/product/'.$product->id) }}"> {{ $product->id }} </a> </td>
                                         </tr>
+                                        @php
+                                            $i++;    
+                                        @endphp
                                     @endforeach
                                 </tbody>
                                 <tfoot style="font-size: 15px">
@@ -118,6 +125,9 @@ $title= "قائمة البضائع";
     
     <!-- Page-Level Scripts -->
     <script>
+        @php 
+            echo 'var rowCount = ' . ($i-1) .';' ;
+        @endphp
         $(document).ready(function(){
             $('.dataTables-example').DataTable({
                 pageLength: 25,
@@ -141,6 +151,20 @@ $title= "قائمة البضائع";
                 ]
             });
         });
+        function deleteZeroAmount(){
+            var element;
+            var row;
+            var i = 0
+            for(i=0 ; i< rowCount ; i++){
+                element = document.getElementById('amount'+ (i+1));
+                // console.log(i);
+                row = element.parentElement;
+                // console.log(row.nodeName);
+                row.style.visibility = 'visible';
+            }
+            
+            
+        }
     </script>
 
 @endsection

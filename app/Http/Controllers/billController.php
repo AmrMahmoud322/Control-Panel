@@ -29,7 +29,9 @@ class billController extends Controller
      */
     public function create()
     {
-        $products = products::all();
+        $products = products::where('quantity','>', 0)->get();
+        // return $products;
+        // $products = products::all();
         return view('admin.bill.add')->with('products',$products);
     }
 
@@ -79,8 +81,15 @@ class billController extends Controller
                 $bill_product->price = $request->input('price-' . ($i + 1));
                 $bill_product->total_price = $request->input('total-' . ($i + 1));
                 
-                $productName = products::find($bill_product->product_id);
-                $bill_product->product_name = $productName->name;
+                $product = products::find($bill_product->product_id);
+                $bill_product->product_name = $product->name;
+                if( ($product->quantity - $bill_product->amount)  < 0){
+                    bill_products::where('bill_id',(int)$bill->id)->delete();
+                    $bill->delete();
+                    return redirect()->back()->with('error','خطاء في حفظ الفاتورة. كمية الصنف' . $product->name .'غير كافية . المتوفر منه '. $product->quantity . 'قطعة فقط ');
+                }
+                $product->quantity = $product->quantity - $bill_product->amount;
+                $product->save();
                 
                 $bill_product->save();
             }
