@@ -18,11 +18,6 @@ Route::group(['middleware'=>'assist'], function ()
 {
 
         Route::get('/admin/bill/new','billController@create');
-        Route::get('/admin/product/{id}',[
-            'uses' => 'ProductController@show',
-            'as' => 'admin.product.show'
-        ]);
-        
         
 });
 
@@ -43,8 +38,18 @@ Route::group(['middleware'=>'admin'], function ()
         'as' => 'admin.user.new',
     ]);
 
+    Route::get('/admin/report',[
+        'uses' => 'ReportController@index',
+        'as' => 'admin.report.index',
+    ]);
+
 });
 
+Route::get('/admin/product/{id}',[
+    'uses' => 'ProductController@show',
+    'as' => 'admin.product.show',
+    'middleware' => 'assist'
+]);
 
 Route::get('/admin/panel',[
     'uses' => 'AdminController@panal',

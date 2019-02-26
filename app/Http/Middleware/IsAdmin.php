@@ -21,7 +21,7 @@ class IsAdmin
             
             return $next($request);
         }else{
-            return redirect()->back();
+            return redirect()->back()->with('error','الصفحة التي تحاول الوصول لها ليست ضمن صلاحياتك');
         }
     }
 }
